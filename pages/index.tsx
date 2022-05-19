@@ -1,10 +1,13 @@
 import type { NextPage } from 'next';
 import { Typography } from '@mui/material';
 import { ShopLayout } from '../source/components/layouts';
-import { initialData } from '../source/database/products';
 import { ProductList } from '../source/components/products';
+import { FullScreenLoading } from '../source/components/ui';
+import { useProducts } from '../source/hooks';
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
+  const { products, isLoading } = useProducts('/products');
+
   return (
     <ShopLayout 
       title='LinuShop | Home'
@@ -13,9 +16,13 @@ const Home: NextPage = () => {
       <Typography variant='h1' component='h1'> Tienda </Typography>
       <Typography variant='h2' sx={{ mb: 1 }}>Todos los productos</Typography>
 
-      <ProductList products={initialData.products as any}/>
+      {
+        isLoading 
+          ? <FullScreenLoading />
+          : <ProductList products={products}/>
+      }
     </ShopLayout>
   )
 }
 
-export default Home;
+export default HomePage;

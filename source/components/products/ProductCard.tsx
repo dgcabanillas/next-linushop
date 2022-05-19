@@ -9,10 +9,11 @@ interface IProps {
 
 export const ProductCard = ({ product }: PropsWithChildren<IProps>) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isImgLoaded, setIsImgLoaded] = useState(false);
   const productImage = useMemo(() => {
     return isHovered
-      ? `products/${product.images[1]}`
-      : `products/${product.images[0]}`
+      ? `/products/${product.images[1]}`
+      : `/products/${product.images[0]}`
   }, [isHovered, product.images])
 
   return (
@@ -36,13 +37,17 @@ export const ProductCard = ({ product }: PropsWithChildren<IProps>) => {
                 className='fadeIn'
                 image={productImage}
                 alt={product.title}
+                onLoad={() => setIsImgLoaded(true)}
               />
             </CardActionArea>
           </Link>
         </NextLink>
       </Card>
 
-      <Box sx={{ mt: 1 }} className='fadeIn'>
+      <Box 
+        className='fadeIn'
+        sx={{ mt: 1, display: isImgLoaded ? 'block' : 'none' }} 
+      >
         <Typography fontWeight={700}>{product.title}</Typography>
         <Typography fontWeight={500}>{`$${product.price}`}</Typography>
       </Box>
