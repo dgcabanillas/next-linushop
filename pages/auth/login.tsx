@@ -23,22 +23,14 @@ const LoginPage: NextPage = () => {
   const [providers, setProviders] = useState<any>({});
 
   useEffect(() => {
-    try {
-      getProviders().then( prov => {
-        setProviders(prov)
-      })
-    } catch ( err ) {
-      console.log( err );
-    }
+    getProviders().then( prov => {
+      setProviders(prov)
+    });
   }, [])
 
   const onLoginUser = async ({ email, password }: TFormData) => {
-    try {
-      setShowError(false);
-      await signIn('credentials', { email, password });
-    } catch ( error ) {
-      console.log( error );
-    }
+    setShowError(false);
+    await signIn('credentials', { email, password });
   }
 
   return (
