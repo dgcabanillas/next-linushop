@@ -20,7 +20,7 @@ npm run dev
 ```
 
 ## Llenar la base de datos con información de pruebas
-Llamara:
+Llamar a:
 ```
 http://localhost:3000/api/seed
 ```
@@ -31,8 +31,20 @@ Para generar interfaces se puede usar:
 https://quicktype.io 
 ```
 
+### usuarios de la página
+```
+- admin
+admin@linushop.com
+123456
+
+- cliente
+dgcabanillas@uni.pe
+123456
+```
+
 ### usuario paypal de prueba para compras
 ```
 dgcabanillas@linushop.example.com
 12345678
 ```
+
