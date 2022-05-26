@@ -35,6 +35,12 @@ const LoginPage: NextPage = () => {
 
   return (
     <AuthLayout title='LinuShop | Ingresar'>
+      login
+    </AuthLayout>
+  )
+
+  return (
+    <AuthLayout title='LinuShop | Ingresar'>
       <form onSubmit={ handleSubmit(onLoginUser) } noValidate>
         <Box sx={{ width: 350, padding: '10px 20px' }} >
           <Grid container spacing={2}>
