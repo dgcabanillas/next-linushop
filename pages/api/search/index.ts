@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = { message: string }
 
-export default function (req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   return res.status(400).json({ message: 'Debe especificar la palabra de búsqueda' });
 }

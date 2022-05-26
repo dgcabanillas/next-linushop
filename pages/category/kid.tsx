@@ -5,7 +5,7 @@ import { ProductList } from '../../source/components/products';
 import { FullScreenLoading } from '../../source/components/ui';
 import { useProducts } from '../../source/hooks';
 
-const Home: NextPage = () => {
+const KidPage: NextPage = () => {
   const { products, isLoading } = useProducts('/products?gender=kid');
 
   return (
@@ -13,9 +13,8 @@ const Home: NextPage = () => {
       title='LinuShop | Niños y Niñas'
       pageDescription='Encuentra los mejores productos para niños y niñas'
     >
-      <Typography variant='h1' component='h1'> Tienda </Typography>
-      <Typography variant='h2' sx={{ mb: 1 }}>Niños | Niñas</Typography>
-
+      <Typography variant='h1' component='h1'> Niños y Niñas </Typography>
+      <Typography variant='h2' sx={{ mb: 1 }}> Encuentra los mejores productos para niños y niñas </Typography>
       {
         isLoading 
           ? <FullScreenLoading />
@@ -25,4 +24,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home;
+export default KidPage;

@@ -1,19 +1,19 @@
-import { PropsWithChildren, useMemo, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 import NextLink from 'next/link';
-import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, CardMedia, Chip, Grid, Link, Typography } from '@mui/material';
 import { IProduct } from '../../interfaces';
 
 interface IProps {
   product: IProduct;
 }
 
-export const ProductCard = ({ product }: PropsWithChildren<IProps>) => {
+export const ProductCard: FC<IProps> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isImgLoaded, setIsImgLoaded] = useState(false);
   const productImage = useMemo(() => {
     return isHovered
-      ? `/products/${product.images[1]}`
-      : `/products/${product.images[0]}`
+      ? product.images[1]
+      : product.images[0]
   }, [isHovered, product.images])
 
   return (
@@ -26,12 +26,22 @@ export const ProductCard = ({ product }: PropsWithChildren<IProps>) => {
     >
       <Card>
         <NextLink
-          href={`product/slug`}
+          href={`/product/${product.slug}`}
           passHref
           prefetch={false}
         >
           <Link>
             <CardActionArea>
+              {
+                (product.inStock === 0) && (
+                  <Chip
+                    color="primary"
+                    label="Sin stock"
+                    sx={{ position: 'absolute', zIndex: 99, top: '10px', left: '10px' }}
+                  />
+                )
+              }
+
               <CardMedia 
                 component='img'
                 className='fadeIn'

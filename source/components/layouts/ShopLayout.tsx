@@ -9,9 +9,7 @@ interface IProps {
   pageDescription: string;
 }
 
-export const ShopLayout: FC<IProps> = (
-  { children, title, pageDescription, imageFullUrl }
-) => {
+export const ShopLayout: FC<IProps> = ({ children, title, pageDescription, imageFullUrl }) => {
   return (
     <>
       <Head>
@@ -35,11 +33,6 @@ export const ShopLayout: FC<IProps> = (
       }}>
         { children }
       </main>
-
-      {/* Footer */}
-      <footer>
-        {/* Custom Footer */}
-      </footer>
     </>
   )
 }

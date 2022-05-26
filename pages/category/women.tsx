@@ -13,9 +13,8 @@ const WomenPage: NextPage = () => {
       title='LinuShop | Mujeres'
       pageDescription='Encuentra los mejores productos para mujeres'
     >
-      <Typography variant='h1' component='h1'> Tienda </Typography>
-      <Typography variant='h2' sx={{ mb: 1 }}>Mujeres</Typography>
-
+      <Typography variant='h1' component='h1'> Mujeres </Typography>
+      <Typography variant='h2' sx={{ mb: 1 }}> Los mejores productos para ellas </Typography>
       {
         isLoading 
           ? <FullScreenLoading />

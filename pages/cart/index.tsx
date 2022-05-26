@@ -1,12 +1,27 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
 import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
-import { ShopLayout } from '../../source/components/layouts'
 import { CartList, OrderSummary } from '../../source/components/cart';
+import { ShopLayout } from '../../source/components/layouts';
+import { CartContext } from '../../source/context';
 
 const CartPage: NextPage = () => {
+
+  const { isLoaded, cart } = useContext( CartContext );
+  const router = useRouter();
+
+  useEffect(() => {
+    if ( isLoaded && cart.length === 0 ){
+      router.replace('/cart/empty');
+    }
+  }, [isLoaded, cart, router])
+  
+  if ( !isLoaded || cart.length === 0 ) return null;
+
   return (
     <ShopLayout 
-      title='Carrito - 3'
+      title='LinuShop | Carrito'
       pageDescription='Carrito de compras de la tienda'
     >
       <Typography variant='h1' component='h1'>Carrito</Typography>
@@ -23,6 +38,7 @@ const CartPage: NextPage = () => {
               <Box sx={{ mt: 3 }}>
                 <Button
                   color='secondary'
+                  href='/checkout/address'
                   className='circular-btn'
                   fullWidth
                 >
@@ -37,4 +53,4 @@ const CartPage: NextPage = () => {
   )
 }
 
-export default CartPage
+export default CartPage;

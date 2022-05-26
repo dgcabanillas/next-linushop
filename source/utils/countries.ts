@@ -1,0 +1,23 @@
+export const countries = [
+  { code: 'CRI', name:'Costa Rica' },
+  { code: 'ARG', name:'Argentina' },
+  { code: 'VEN', name:'Venezuela' },
+  { code: 'GTM', name:'Guatemala' },
+  { code: 'MEX', name:'Mexico' },
+  { code: 'BLZ', name:'Belice' },
+  { code: 'PRI', name:'Puerto Rico' },
+  { code: 'ECU', name:'Ecuador' },
+  { code: 'PAN', name:'Panamá' },
+  { code: 'HND', name:'Honduras' },
+  { code: 'BOL', name:'Bolivia' },
+  { code: 'SLV', name:'El Salvador' },
+  { code: 'PER', name:'Peru' },
+  { code: 'URY', name:'Uruguay' },
+  { code: 'COL', name:'Colombia' },
+  { code: 'DOM', name:'Republica Dominicana' },
+  { code: 'ESP', name:'España' },
+  { code: 'PRY', name:'Paraguay' },
+  { code: 'CHL', name:'Chile' },
+  { code: 'CUB', name:'Cuba' },
+  { code: 'NIC', name:'Nicaragua' }
+];

@@ -1,13 +1,14 @@
-import { PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { Box, Button } from '@mui/material';
 import { IProductSize } from '../../interfaces';
 
 interface IProps {
-  selectedSize: IProductSize;
+  selectedSize?: IProductSize;
   sizes: IProductSize[];
+  onSelectedSize: (size: IProductSize) => void;
 }
 
-export const SizeSelector = ({ selectedSize, sizes }: PropsWithChildren<IProps>) => {
+export const SizeSelector: FC<IProps> = ({ selectedSize, sizes, onSelectedSize }) => {
   return (
     <Box>
       {
@@ -16,6 +17,7 @@ export const SizeSelector = ({ selectedSize, sizes }: PropsWithChildren<IProps>)
             key={size}
             size='small'
             color={selectedSize === size ? 'primary' : 'info'}
+            onClick={() => onSelectedSize(size)}
           >
             { size }
           </Button>

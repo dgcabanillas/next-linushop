@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import { Box } from '@mui/material';
-import { PropsWithChildren } from 'react';
+import { FC, ReactNode } from 'react';
 
 interface IProps {
-  title: string
+  title: string;
+  children?: ReactNode | undefined;
 }
 
-export const AuthLayout = ({ children, title }: PropsWithChildren<IProps>) => {
+export const AuthLayout: FC<IProps> = ({ children, title }) => {
   return (
     <>
       <Head>

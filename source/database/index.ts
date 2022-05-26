@@ -1,3 +1,6 @@
 export * as db from './db';
 export * from './constants';
-export * as seedDatabase from './products';
+export * from './resolvers';
+
+// datos semilla para pruebas
+export * as seedDatabase from './seed-data';

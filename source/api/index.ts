@@ -1,0 +1,1 @@
+export { default as linushopApi } from './linushopApi';

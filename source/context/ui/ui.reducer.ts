@@ -1,4 +1,4 @@
-import { UIState } from './';
+import { UIState } from '.';
 import { UIActionType } from './ui.types';
 import { ActionType } from '../../interfaces';
 

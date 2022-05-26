@@ -5,7 +5,7 @@ import { IProduct } from '../../../source/interfaces';
 
 type Data = { message: string } | IProduct[]
 
-export default function (req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   switch( req.method ) {
     case 'GET':
       return searchProducts(req, res);
@@ -27,11 +27,11 @@ const searchProducts = async (req: NextApiRequest, res: NextApiResponse<Data>) =
   await db.connect();
 
   const products = await Product
-                          .find({
-                            $text: { $search: q }
-                          })
-                          .select('title images price inStock slug -_id')
-                          .lean();
+    .find({
+      $text: { $search: q }
+    })
+    .select('title images price inStock slug -_id')
+    .lean();
 
   await db.disconnect();
 

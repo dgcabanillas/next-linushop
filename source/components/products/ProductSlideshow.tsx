@@ -1,12 +1,12 @@
-import { PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { Slide } from 'react-slideshow-image';
 import styles from './ProductSlideshow.module.css';
 
 interface IProps {
-  images: string[]
+  images: string[];
 }
 
-export const ProductSlideshow = ({ images }: PropsWithChildren<IProps>) => {
+export const ProductSlideshow: FC<IProps> = ({ images }) => {
   return (
     <Slide
       easing='ease'
@@ -15,11 +15,10 @@ export const ProductSlideshow = ({ images }: PropsWithChildren<IProps>) => {
     >
       {
         images.map( image => {
-          const url = `/products/${image}`;
           return (
             <div className={styles['each-slide']} key={image}>
               <div style={{
-                backgroundImage: `url(${url})`,
+                backgroundImage: `url(${image})`,
                 backgroundSize: 'cover'
               }}>
               </div>

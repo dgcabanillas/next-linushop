@@ -17,3 +17,7 @@ export interface IProduct {
 
 export type IProductSize = 'XS'|'S'|'M'|'L'|'XL'|'XXL'|'XXXL';
 export type IProductType = 'shirts'|'pants'|'hoodies'|'hats';
+
+export interface IProductSlug {
+  slug: string;
+}
